@@ -1,0 +1,36 @@
+<%- include('../partials/head.ejs') %> 
+
+  <body>
+      <div class="header">
+      <p>BKK <span>2D</span> <span>3D</span></p>
+    </div>
+
+    <div class="content">
+        <% if(data.length> 0) { %> <% data.forEach((d)=> { %>
+           <div class="round">
+        <p class="round-time"> <%- d.date + " " + d.time %></p>
+        <div class="card round-card">
+          <div class="round-result">
+            <p class="round-title">Buy</p>
+            <p class="round-number"><%- d.buy %></p>
+          </div>
+          <div class="round-result">
+            <p class="round-title">Sell</p>
+            <p class="round-number"><%- d.sell %></p>
+          </div>
+          <div class="round-result">
+            <p class="round-title">3D</p>
+            <p class="round-number"><%- d.three_d %></p>
+          </div>
+          <div class="round-result">
+            <p class="round-title">2D</p>
+            <p class="round-number"><%- d.two_d %></p>
+          </div>
+        </div>
+           </div>
+        <% }) %> <% } else { %>
+            <p class="no-result-history">No results history</p>
+          <% } %> 
+    </div>
+  </body>
+</html>

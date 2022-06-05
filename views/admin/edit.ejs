@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BKK 2D 3D</title>
+    <link rel="stylesheet" href="../../style.css" />
+  </head>
+
+<body>
+  <div class="header">
+    <p>BKK <span>2D</span> <span>3D</span></p>
+  </div>
+  <div class="content">
+    <h1 class="panel-title">Edit Result</h1>
+    <form class="panel-form" action="/panel/his-rec/<%= data?._id %> " id="form" method="post">
+        <input type="text" name="buy" placeholder="Buy" value="<%= data?.buy %>">
+        <input type="text" name="sell" placeholder="Sell" value="<%= data?.sell %>" >
+        <input type="text" name="two_d" placeholder="Sell" value="<%= data?.two_d %>" >
+        <input type="text" name="three_d" placeholder="Sell" value="<%= data?.three_d %>" >
+        <button type="submit">
+            Update
+        </button>
+    </form>
+    <div style="margin-top: 20px">
+        <a href="/panel" >Go Back</button>
+    </div>
+  </div>
+</body>
+</html>

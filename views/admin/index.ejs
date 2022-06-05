@@ -1,0 +1,44 @@
+<%- include('./partials/head.ejs') %> 
+  <body>
+    <div class="header">
+      <p>BKK <span>2D</span> <span>3D</span></p>
+    </div>
+    <div class="content">
+    <h1 class="panel-title">Admin Panel</h1>
+       <form class="panel-form" action="/panel" id="form" method="post">
+           <input type="text" name="buy" placeholder="Buy">
+           <input type="text" name="sell" placeholder="Sell">
+           <button type="submit">
+               <% if(data.length > 0){ %> 
+                Update
+      <% } else { %> 
+        Create
+        <% } %> 
+           </button>
+       </form>
+        <% if(data.length > 0){ %> 
+          <form action="/panel/delete" method="post">
+            <button type="submit" class="delete-btn" id="deleteBtn">Delete</button>
+          </form>
+      <% } %> 
+
+      <form class="marquee-form" action="/panel/marquee" method="post" style="margin-top:50px">
+           <input type="text" name="marquee_text" placeholder="Alert Text" style="display: block">
+            <button type="submit" class="marquee-btn" id="">Update Marquee</button>
+      </form>
+
+       <% if(marquee.length > 0){ %> 
+          <form action="/panel/marquee/delete" method="post">
+            <button type="submit" class="marquee-btn" >Delete Marquee</button>
+          </form>
+      <% } %> 
+
+    <!-- <div style="margin-top: 20px">
+        <a href="/panel/history" >Result History</button>
+    </div> -->
+
+    </div>
+  </body>
+
+
+</html>

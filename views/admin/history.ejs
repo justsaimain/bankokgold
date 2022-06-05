@@ -1,0 +1,41 @@
+<%- include('./partials/head.ejs') %> 
+  <body>
+        <div class="header">
+      <p>BKK <span>2D</span> <span>3D</span></p>
+    </div>
+   <div class="content">
+       <h1 class="panel-title">Result History</h1>
+       <!-- <table>
+         
+       </table> -->
+       <table class="zui-table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>2D</th>
+            <th>3D</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+   <% if(data.length > 0) { %> <% data.forEach((d) => { %>
+        <tr>
+            <td><%= d.date %> </td>
+            <td><%= d.time %> </td>
+            <td><%= d.two_d %> </td>
+            <td><%= d.three_d %> </td>
+            <td><a href="/panel/his-rec/<%= d._id %>">Edit</a></td>
+        </tr>
+        <% }) %> <% } %>
+   
+        
+    </tbody>
+</table>
+        
+  <div style="margin-top: 20px">
+        <a href="/panel" >Go Back</button>
+    </div>
+   </div>
+  </body>
+</html>

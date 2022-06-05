@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background: #f5f9fc;
+  max-width: 390px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header p {
+  font-size: 30px;
+  font-weight: bold;
+  color: #f28487;
+  letter-spacing: 0.5px;
+}
+
+.header p span:nth-child(1) {
+  color: #499ce4;
+  font-size: 25px;
+}
+
+.header p span:nth-child(2) {
+  color: #e8ab59;
+  font-size: 25px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.content {
+  padding: 10px 20px;
+}
+
+.datetime {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.datetime .date {
+  font-size: 16px;
+  color: #f28487;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 5px;
+  letter-spacing: 0.5px;
+}
+
+.datetime .time {
+  font-size: 16px;
+  font-weight: 500;
+  color: #499ce4;
+  letter-spacing: 0.5px;
+}
+
+.card {
+  background: #fff;
+  padding: 16px 30px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+}
+
+.card-label {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8px;
+  color: #9f9f9f;
+}
+
+.card-number {
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #67d178;
+}
+
+.buy-sell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #67d178;
+}
+
+#buy-data {
+  color: #67d178;
+}
+
+#sell-data {
+  color: #f28487;
+}
+
+#d3-data {
+  color: #499ce4;
+}
+
+#d2-data {
+  color: #e8ab59;
+}
+.round-time {
+  margin-top: 30px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #499ce4;
+  font-weight: 500;
+}
+
+.round-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.round-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.round-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 18px;
+  color: #9f9f9f;
+}
+
+.round-number {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.actions {
+  border-top: 1px solid #e7e7e7;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result,
+.server {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result {
+  margin-right: 10px;
+}
+
+.server {
+  margin-left: 10px;
+}
+
+.result-btn,
+.server-btn {
+  background: #fff;
+  padding: 15px 20px;
+  color: #9f9f9f;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.result-btn img,
+.server-btn img {
+  margin-right: 20px;
+  width: 25px;
+}
+
+.market-status {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.market-status-closed {
+  color: #f28487;
+}
+.blink_me {
+  animation: blinker 1.5s linear infinite;
+  -webkit-animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.round-card .round-result:nth-child(1) .round-number {
+  color: #67d178;
+}
+
+.round-card .round-result:nth-child(2) .round-number {
+  color: #f28487;
+}
+
+.round-card .round-result:nth-child(3) .round-number {
+  color: #499ce4;
+}
+
+.round-card .round-result:nth-child(4) .round-number {
+  color: #e8ab59;
+}
+
+/* panel admin */
+
+.panel-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #9f9f9f;
+}
+
+.panel-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-form input,
+.marquee-form input {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #9f9f9f;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.marquee-form input {
+  width: 330px;
+}
+.panel-form button {
+  width: 100px;
+  padding: 10px;
+  background-color: #f28487;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.delete-btn {
+  width: 100px;
+  padding: 10px;
+  background-color: #f28487;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.marquee-btn {
+  padding: 10px;
+  background-color: #f28487;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.page-not-found,
+.no-result-history {
+  font-size: 25px;
+  color: #f28487;
+  text-align: center;
+}
+
+.no-result-history {
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.marquee-text {
+  border-radius: 2px;
+  background: #f28487;
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.zui-table {
+  width: 100%;
+  border: solid 1px #ddeeee;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font: normal 13px Arial, sans-serif;
+}
+.zui-table thead th {
+  background-color: #ddefef;
+  border: solid 1px #ddeeee;
+  color: #336b6b;
+  padding: 10px;
+  text-align: left;
+  text-shadow: 1px 1px 1px #fff;
+}
+.zui-table tbody td {
+  border: solid 1px #ddeeee;
+  color: #333;
+  padding: 10px;
+  text-shadow: 1px 1px 1px #fff;
+}
