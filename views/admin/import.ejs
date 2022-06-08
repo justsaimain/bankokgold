@@ -1,0 +1,19 @@
+<%- include('./partials/head.ejs') %> 
+  <body>
+    <div class="header">
+      <p>BKK <span>2D</span> <span>3D</span></p>
+    </div>
+    <div class="content">
+    <h1 class="panel-title">Import Panel</h1>
+       <form class="panel-form" action="/import" id="form" method="post" enctype="multipart/form-data">
+           <input type="file" name="xlsx">
+           <button type="submit">
+              Import
+           </button>
+       </form>
+    </div>
+
+  </body>
+
+
+</html>

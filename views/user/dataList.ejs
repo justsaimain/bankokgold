@@ -1,9 +1,12 @@
 <%- include('../partials/head.ejs') %> 
 
   <body>
-      <div class="header">
-      <p>BKK <span>2D</span> <span>3D</span></p>
+    <div class="back-nav">
+        <img onclick="window.location = '/'" style="cursor: pointer;" width="20" src="back.png" alt="" /> <span style="margin-left: 10px">Results</span>
     </div>
+    <!-- <div class="header">
+      <p>BKK <span>2D</span> <span>3D</span></p>
+    </div> -->
 
     <div class="content">
         <% if(data.length> 0) { %> <% data.forEach((d)=> { %>
