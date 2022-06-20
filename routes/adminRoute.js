@@ -103,6 +103,6 @@ router.post("/marquee/delete", deleteMarquee);
 router.post("/delete", deleteData);
 router.get("/store", storeData);
 
+router.get("/import", getImport);
 router.post("/import", postImport);
-
 module.exports = router;

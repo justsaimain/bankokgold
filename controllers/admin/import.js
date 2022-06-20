@@ -31,34 +31,57 @@ module.exports.postImport = (req, res) => {
     );
     const file = reader.readFile(filePath);
 
-    let tempData = [];
-    let insertData = [];
-    const temp = reader.utils.sheet_to_json(file.Sheets[file.SheetNames[0]], {
-      range: 2,
-    });
-    temp.forEach((res) => {
-      tempData.push(res);
+    const sheetData = [];
+    const insertData = [];
+
+    const tempData = reader.utils.sheet_to_json(
+      file.Sheets[file.SheetNames[0]],
+      {
+        range: 1,
+      }
+    );
+
+    tempData.forEach((res) => {
+      sheetData.push(res);
     });
 
-    tempData.forEach((data) => {
-      console.log("dd", data);
+    sheetData.forEach((data) => {
       let insD = {};
       let times = Object.keys(data);
       let values = Object.values(data);
-      insD = {
-        date: data.Date,
-        time: times[1],
-      };
-      insertData.push(insD);
+      values.shift();
+      times.shift();
+      times.forEach((time, index) => {
+        insD = {
+          date: String(Object.values(data)[0]).replaceAll(".", "/"),
+          buy:
+            "1." +
+            Math.floor(Math.random() * 90 + 10) +
+            String(values[index])[0],
+          sell:
+            "1." +
+            Math.floor(Math.random() * 90 + 10) +
+            String(values[index])[1],
+          time: time,
+          two_d: values[index].split(" - ")[0],
+          three_d: values[index].split(" - ")[1],
+        };
+        insertData.push(insD);
+      });
     });
 
-    console.log("in", insertData);
     if (fs.existsSync(`./import/${req.file.filename}`)) {
       fs.unlinkSync(`./import/${req.file.filename}`);
     } else {
       console.log("no file in " + `./import/${req.file.filename}`);
     }
 
-    res.send(tempData);
+    Data.insertMany(insertData, (err, docs) => {
+      if (err) {
+        res.render("admin/import", { error: err });
+      }
+
+      res.render("admin/import", { success: "success" });
+    });
   });
 };

@@ -13,7 +13,5 @@ router.use(express.static("public"));
 router.get("/", homePage);
 router.get("/results", getDataList);
 router.get("/stats", getServerStats);
-router.get("/import", getImport);
-router.post("/import", postImport);
 
 module.exports = router;

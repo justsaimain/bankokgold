@@ -5,7 +5,14 @@
     </div>
     <div class="content">
     <h1 class="panel-title">Import Panel</h1>
-       <form class="panel-form" action="/import" id="form" method="post" enctype="multipart/form-data">
+    <% if (locals.error) { %>
+     <p>Something was wrong. Importing data failed.</p>
+    <% } %>
+
+      <% if (locals.success) { %>
+      <p>Import data success</p>
+    <% } %>
+       <form class="panel-form" action="/panel/import" id="form" method="post" enctype="multipart/form-data">
            <input type="file" name="xlsx">
            <button type="submit">
               Import
