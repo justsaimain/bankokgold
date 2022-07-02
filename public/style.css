@@ -311,6 +311,7 @@ body {
   margin-top: 10px;
   border-radius: 5px;
   color: #fff;
+  cursor: pointer;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;

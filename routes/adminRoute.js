@@ -12,6 +12,7 @@ const {
   postHistoryEdit,
 } = require("../controllers/admin/history");
 const { getImport, postImport } = require("../controllers/admin/import");
+const tempController = require("../controllers/admin/tempData");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -105,4 +106,8 @@ router.get("/store", storeData);
 
 router.get("/import", getImport);
 router.post("/import", postImport);
+
+router.get("/temp", tempController.getTemp);
+router.post("/temp", tempController.postTemp);
+router.post("/temp/del", tempController.deleteTemp);
 module.exports = router;

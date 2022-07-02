@@ -62,11 +62,6 @@
             <img src="bar-chart.png" alt="" /> Results
           </button>
         </div>
-        <!-- <div class="server">
-          <button class="server-btn" onclick="location.href='/stats'">
-            <img src="server.png" alt="" /> Server Busy
-          </button>
-        </div> -->
       </div>
     </div>
   </body>
@@ -98,6 +93,7 @@
       xmlHttp.open("GET", "/api/results", false);
       xmlHttp.send(null);
       let data = JSON.parse(xmlHttp.response).data;
+      console.log(data);
       if(data.length > 0){
         document.getElementById("round-time").innerText = "Round " + data[0]?.time;
         document.getElementById("round-buy").innerText = data[0]?.buy;

@@ -1,0 +1,49 @@
+<%- include('./partials/head.ejs') %> 
+  <body>
+    <div class="header">
+      <p>BKK <span>2D</span> <span>3D</span></p>
+    </div>
+    <div class="content">
+    <h1 class="panel-title">Temporary Data Panel</h1>
+  <% if (data) { %>
+     <p style="color: red;">Note : The below data will alway be the last result, if this data exist.</p>
+  <% } %>
+      <form class="panel-form" action=<% if (data) { %>
+      <%= '/panel/temp/del' %> 
+      <% } else {%> <%= '/panel/temp' %>  <% } %>  id="form" method="post">
+          <input type="text" name="buy" placeholder="Buy" <% if (data) { %>
+           disabled value="<%= data.buy %> "
+          <% } %>>
+          <input type="text" name="sell" placeholder="Sell" <% if (data) { %>
+           disabled value="<%= data.sell %> "
+          <% } %>>
+          <input type="text" name="date" placeholder="01/12/2022" <% if (data) { %>
+           disabled value="<%= data.date %> "
+          <% } %>>
+          <% if (data) { %>
+            <p>Time - <%= data.time %> </p>
+               <button type="submit">
+            Delete Data
+          </button>
+          <% } else { %>
+          <div>
+              <input type="radio" name="time" id="1"  value="8:00 AM"><label for="1">8:00 AM</label>
+              <input type="radio" name="time" id="2" value="10:00 AM"><label for="2">10:00 AM</label>
+              <input type="radio" name="time" id="3" value="12:00 PM"><label for="3">12:00 PM</label>
+              <input type="radio" name="time" id="4" value="2:00 PM"><label for="4">2:00 PM</label>
+              <input type="radio" name="time" id="5" value="4:00 PM"><label for="5">4:00 PM</label>
+              <input type="radio" name="time" id="6" value="7:00 PM"><label for="6">7:00 PM</label>
+              <input type="radio" name="time" id="7" value="10:00 PM"><label for="7">10:00 PM</label>
+          </div>
+           <button type="submit">
+            Save
+          </button>
+            <% } %> 
+         
+      </form>
+    </div>
+
+  </body>
+
+
+</html>

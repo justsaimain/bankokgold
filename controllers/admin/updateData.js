@@ -87,9 +87,6 @@ module.exports.updateData = async (req, res) => {
     .add(3, "minutes")
     .format("MMMM D YYYY, H:mm:ss");
 
-  console.log("show date time", showDateTime);
-  console.log("delete date time", deleteDateTime);
-
   var query = {},
     update = { sell, buy, showDateTime, deleteDateTime },
     options = { upsert: true, new: true, setDefaultsOnInsert: true };
