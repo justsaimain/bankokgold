@@ -2,7 +2,7 @@ const Data = require("../../models/Data");
 const fs = require("fs");
 
 module.exports.storeData = async (req, res) => {
-  console.log("STOREING RUNNING");
+  console.log("STORING RUNNING");
 
   const axios = require("axios");
   const dotenv = require("dotenv");

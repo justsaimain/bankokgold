@@ -25,17 +25,6 @@ module.exports.liveData = async (req, res) => {
           new Date(currentDateTime) >= new Date(data.showDateTime) &&
           new Date(currentDateTime) < new Date(data.deleteDateTime)
         ) {
-          console.log(
-            "condition 1",
-            new Date(currentDateTime) >= new Date(data.showDateTime)
-          );
-          console.log(
-            "condition 2",
-            new Date(currentDateTime) < new Date(data.deleteDateTime)
-          );
-          console.log("current time", currentDateTime);
-          console.log("show time", data.showDateTime);
-          console.log("delete time", data.deleteDateTime);
           rData = {
             num_one: "1." + data.buy,
             num_two: "2." + data.sell,
