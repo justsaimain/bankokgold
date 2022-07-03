@@ -12,8 +12,8 @@ module.exports.postTemp = (req, res) => {
 
   var query = {},
     update = {
-      sell,
-      buy,
+      sell: "2." + sell,
+      buy: "1." + buy,
       date,
       time,
       two_d: buy.slice(-1) + sell.slice(-1),
