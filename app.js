@@ -42,6 +42,7 @@ cron.schedule("0 19 * * *", () => {
 
 // 10 PM
 cron.schedule("0 22 * * *", () => {
+  console.log("should store in 10PM");
   storeData();
 });
 
