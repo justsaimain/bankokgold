@@ -91,6 +91,7 @@ router.get("/", async (req, res) => {
   const marquee = await Marquee.find();
 
   Option.find({}, {}, {}, (err, result) => {
+    console.log(result);
     res.render("admin/index", { data: result, marquee: marquee });
   });
 });

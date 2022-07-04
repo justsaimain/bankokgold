@@ -4,10 +4,7 @@
       <p>BKK <span>2D</span> <span>3D</span></p>
     </div>
     <div class="content">
-    <h1 class="panel-title">Temporary Data Panel</h1>
-  <% if (data) { %>
-     <p style="color: red;">Note : The below data will alway be the last result, if this data exist.</p>
-  <% } %>
+    <h1 class="panel-title">Insert Data Panel</h1>
       <form class="panel-form" action=<% if (data) { %>
       <%= '/panel/temp/del' %> 
       <% } else {%> <%= '/panel/temp' %>  <% } %>  id="form" method="post">
@@ -21,6 +18,7 @@
            disabled value="<%= data.date %> "
           <% } %>>
           <% if (data) { %>
+            <p>Date - <%= data.date %> </p>
             <p>Time - <%= data.time %> </p>
                <button type="submit">
             Delete Data
