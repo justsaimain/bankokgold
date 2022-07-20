@@ -27,6 +27,10 @@ const Option = require("../models/Option");
 const { updateMarquee } = require("../controllers/admin/updateMarquee");
 const { deleteMarquee } = require("../controllers/admin/deleteMarquee");
 const Marquee = require("../models/Marquee");
+const {
+  getOffDay,
+  saveOffDay,
+} = require("../controllers/admin/offDayController");
 const jwtKey = process.env.TOKEN_SECRET;
 const jwtExpirySeconds = 300; // second
 
@@ -99,6 +103,9 @@ router.post("/", updateData);
 router.get("/his-rec", getHistory);
 router.get("/his-rec/:id", getHistoryEdit);
 router.post("/his-rec/:id", postHistoryEdit);
+
+router.get("/offday", getOffDay);
+router.post("/offday", saveOffDay);
 
 router.post("/marquee", updateMarquee);
 router.post("/marquee/delete", deleteMarquee);

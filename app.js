@@ -10,38 +10,49 @@ const { storeData } = require("./controllers/admin/storeData");
 const cron = require("node-cron");
 
 // 8 AM
-cron.schedule("0 8 * * *", () => {
+var round_one = cron.schedule("0 8 * * *", () => {
   storeData();
 });
 
 // 10 AM
-cron.schedule("0 10 * * *", () => {
+var round_two = cron.schedule("0 10 * * *", () => {
   storeData();
 });
 
 // 12 PM
-cron.schedule("0 12 * * *", () => {
+var round_three = cron.schedule("0 12 * * *", () => {
   storeData();
 });
 
 // 2 PM
-cron.schedule("0 14 * * *", () => {
+var round_four = cron.schedule("0 14 * * *", () => {
   storeData();
 });
 
 // 4 PM
-cron.schedule("0 16 * * *", () => {
+var round_five = cron.schedule("0 16 * * *", () => {
   storeData();
 });
 
 // 7 PM
-cron.schedule("0 19 * * *", () => {
+var round_six = cron.schedule("0 19 * * *", () => {
   storeData();
 });
 
 // 10 PM
-cron.schedule("0 22 * * *", () => {
+var round_seven = cron.schedule("0 22 * * *", () => {
   storeData();
+});
+
+// midnight
+cron.schedule("0 0 0 * * *", () => {
+  round_one.start();
+  round_two.start();
+  round_three.start();
+  round_four.start();
+  round_five.start();
+  round_six.start();
+  round_seven.start();
 });
 
 const adminRoutes = require("./routes/adminRoute");
