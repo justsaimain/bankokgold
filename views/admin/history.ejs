@@ -24,7 +24,7 @@
             <td><%= d.three_d %> </td>
             <td style="display: flex;">
               <button style="margin-right: 5px;" onclick="location.href='/panel/his-rec/<%= d._id %>'">Edit</button>
-              <button onclick="deleteRec('<%= d._id %>')">Delete</button>
+              <button onclick="deleteRec(this)" data-id="<%= d._id %>" data-date="<%= d.date %>" data-time="<%= d.time %>">Delete</button>
           </td>
         </tr>
         <% }) %> <% } %>
@@ -37,8 +37,19 @@
    </div>
 
    <script>
-    function deleteRec(id){
-      alert(id);
+    function deleteRec(e){
+      var id = e.getAttribute('data-id');
+      var date = e.getAttribute('data-date');
+      var time = e.getAttribute('data-time');
+      if (confirm("Are you sure to delete data from " + date + " " + time) == true) {
+          let xmlHttp = null;
+          xmlHttp = new XMLHttpRequest();
+          xmlHttp.open("DELETE", "/panel/his-rec/" + id, true);
+          xmlHttp.send(null);
+          setTimeout(() => {
+            location.href = '/panel/his-rec'
+          }, 500);
+      } 
     }
    </script>
 

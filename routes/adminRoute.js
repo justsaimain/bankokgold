@@ -10,6 +10,7 @@ const {
   getHistory,
   getHistoryEdit,
   postHistoryEdit,
+  deleteHistory,
 } = require("../controllers/admin/history");
 const { getImport, postImport } = require("../controllers/admin/import");
 const tempController = require("../controllers/admin/tempData");
@@ -103,6 +104,7 @@ router.post("/", updateData);
 router.get("/his-rec", getHistory);
 router.get("/his-rec/:id", getHistoryEdit);
 router.post("/his-rec/:id", postHistoryEdit);
+router.delete("/his-rec/:id", deleteHistory);
 
 router.get("/offday", getOffDay);
 router.post("/offday", saveOffDay);
