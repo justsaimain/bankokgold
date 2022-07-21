@@ -7,6 +7,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const { storeData } = require("./controllers/admin/storeData");
+const OffDay = require("./models/OffDay");
+
 const cron = require("node-cron");
 
 // 8 AM
@@ -45,7 +47,7 @@ var round_seven = cron.schedule("0 22 * * *", () => {
 });
 
 // midnight
-cron.schedule("0 0 0 * * *", () => {
+cron.schedule("0 0 0 * * *", async () => {
   round_one.start();
   round_two.start();
   round_three.start();
@@ -53,6 +55,39 @@ cron.schedule("0 0 0 * * *", () => {
   round_five.start();
   round_six.start();
   round_seven.start();
+
+  const offday = await OffDay.find();
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, "0");
+  const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  const yyyy = today.getFullYear();
+  const date = dd + "/" + mm + "/" + yyyy;
+
+  offday.forEach((off) => {
+    if (off.date === date) {
+      if (off.time === "8:00 AM") {
+        round_one.stop();
+      }
+      if (off.time === "10:00 AM") {
+        round_two.stop();
+      }
+      if (off.time === "12:00 PM") {
+        round_three.stop();
+      }
+      if (off.time === "2:00 PM") {
+        round_four.stop();
+      }
+      if (off.time === "4:00 PM") {
+        round_five.stop();
+      }
+      if (off.time === "7:00 AM") {
+        round_six.stop();
+      }
+      if (off.time === "10:00 AM") {
+        round_seven.stop();
+      }
+    }
+  });
 });
 
 const adminRoutes = require("./routes/adminRoute");

@@ -1,9 +1,9 @@
 const OffDay = require("../../models/OffDay");
 const mongoose = require("mongoose");
 
-module.exports.getOffDay = (req, res) => {
+module.exports.getOffDay = async (req, res) => {
   try {
-    OffDay.find()
+    await OffDay.find()
       .then((result) => {
         console.log(result);
         res.render("admin/offday", {
@@ -18,7 +18,7 @@ module.exports.getOffDay = (req, res) => {
   }
 };
 
-module.exports.saveOffDay = (req, res) => {
+module.exports.saveOffDay = async (req, res) => {
   try {
     const { date, time } = req.body;
     const sData = new OffDay({
@@ -26,10 +26,26 @@ module.exports.saveOffDay = (req, res) => {
       time: time,
     });
 
-    sData
+    await sData
       .save()
       .then((result) => {
         console.log("saved", result);
+        res.redirect("/panel/offday");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+module.exports.deleteOffDay = async (req, res) => {
+  const id = mongoose.Types.ObjectId(req.params.id);
+
+  try {
+    await OffDay.deleteOne({ _id: id })
+      .then((result) => {
         res.redirect("/panel/offday");
       })
       .catch((error) => {

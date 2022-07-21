@@ -5,6 +5,26 @@
     </div>
     <div class="content">
     <h1 class="panel-title">Off Day Panel</h1>
+    <table class="zui-table" style="margin-bottom: 10px">
+      <thead>
+          <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+ <% if(data.length > 0) { %> <% data.forEach((d) => { %>
+      <tr>
+          <td><%= d.date %> </td>
+          <td><%= d.time %> </td>
+          <td>
+            <button onclick="deleteRec(this)" data-id="<%= d._id %>" data-date="<%= d.date %>" data-time="<%= d.time %>">Delete</button>
+          </td>
+      </tr>
+      <% }) %> <% } %>
+      </tbody>
+</table>
      <form class="panel-form" action="/panel/offday" id="form" method="post">
           <input type="text" name="date" placeholder="01/12/2022">
           <div>
@@ -21,7 +41,22 @@
            </button>
        </form>
     </div>
-
+    <script>
+      function deleteRec(e){
+        var id = e.getAttribute('data-id');
+        var date = e.getAttribute('data-date');
+        var time = e.getAttribute('data-time');
+        if (confirm("Are you sure to delete off day at " + date + " " + time) == true) {
+            let xmlHttp = null;
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("DELETE", "/panel/offday/" + id, true);
+            xmlHttp.send(null);
+            setTimeout(() => {
+              location.href = '/panel/offday'
+            }, 500);
+        } 
+      }
+     </script>
   </body>
 
 
